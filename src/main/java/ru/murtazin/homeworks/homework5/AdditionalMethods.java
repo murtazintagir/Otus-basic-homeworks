@@ -20,7 +20,7 @@ public class AdditionalMethods {
 
     // Метод для генерации случайного числа типа int
     public static int getRandomNumber() {
-        // Генерируем число в диапазоне 1 - 10
+        // Генерируем число в диапазоне 0 - 10
         int max = 10;
         int min = -10;
         return randomInt.nextInt(max - min) + min;
@@ -29,6 +29,7 @@ public class AdditionalMethods {
     // Метод для проверки элементов массива на сортировку
     public static int getSrt(int[] array, int srt, boolean direct) {
         for (int i = 0; i < array.length - 1; i++) {
+
             if (array[i] > array[i + 1] && direct || array[i] < array[i + 1] && (!direct)) { // проверяем элементы на сортировку
                 srt = 2; // массив не отсортирован
                 break; // прерываем цикл
