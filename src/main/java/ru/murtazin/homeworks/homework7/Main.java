@@ -20,10 +20,11 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("\nИсходный массив: " + Arrays.deepToString(arrayUneven) + "\n");
-        System.out.println(getSumOfPositiveElements(arrayUneven)); // Метод 1
+        System.out.println("Сумма элементов массива больше нуля равна " +
+                getSumOfPositiveElements(arrayUneven) + "\n"); // Метод 1
         printSquareOfSymbol(Math.abs(AdditionalMethods.getRandomNumber()));  // Метод 2
-        generateArrayWithZeroDiag(arrayEven); // Метод 3
-        System.out.println(findMax(arrayUneven)); // Метод 4
+        ArrayWithZeroDiag(arrayEven); // Метод 3
+        System.out.println("Максимальный элемента массива равен " + findMax(arrayUneven) + "\n"); // Метод 4
         System.out.println(sumElArray(arrayUneven));// Метод 5
     }
 
@@ -33,7 +34,7 @@ public class Main {
      * Реализовать метод sumOfPositiveElements(..), принимающий в качестве аргумента целочисленный двумерный массив,
      * метод должен посчитать и вернуть сумму всех элементов массива, которые больше 0
      */
-    public static String getSumOfPositiveElements(int[][] array) {
+    public static int getSumOfPositiveElements(int[][] array) {
         System.out.println("Метод 1");
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -43,7 +44,7 @@ public class Main {
                 }
             }
         }
-        return "Сумма элементов массива больше нуля равна " + sum + "\n";
+        return sum;
     }
 
     /**
@@ -82,7 +83,7 @@ public class Main {
      * Реализовать метод, принимающий в качестве аргумента двумерный целочисленный массив,
      * и заменяющий элементы по диагоналям на значение ноль
      */
-    private static void generateArrayWithZeroDiag(int[][] mas) {
+    private static void ArrayWithZeroDiag(int[][] mas) {
         System.out.println("Метод 3");
         for (int i = 0; i < mas.length; i++) {
             for (int j = 0; j < mas[i].length; j++) {
@@ -100,7 +101,7 @@ public class Main {
      * Метод 4.
      * Реализовать метод findMax(int[][] array) который должен найти и вернуть максимальный элемент массива
      */
-    public static String findMax(int[][] array) {
+    public static int findMax(int[][] array) {
         System.out.println("Метод 4");
         int result = array[0][0];
         System.out.println(Arrays.deepToString(array));
@@ -111,7 +112,7 @@ public class Main {
                 }
             }
         }
-        return "Максимальный элемента массива равен " + result + "\n";
+        return result;
     }
 
     /**
