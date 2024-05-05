@@ -24,12 +24,12 @@ public class Box {
     }
 
     public void repaint(String color) {
-        setColor(color);
+        this.color = color;
         System.out.println("Коробка перекрашена в цвет " + color);
     }
 
     public String coverPosition() {
-        if (isCoverPosition()) {
+        if (this.coverPosition) {
             return "Коробка открыта";
         } else {
             return "Коробка закрыта";
@@ -37,38 +37,38 @@ public class Box {
     }
 
     public void putContent(String obj) {
-        if (!isCoverPosition()) {
+        if (!this.coverPosition) {
             System.out.println("Коробка закрыта");
         } else {
             if (content == null || content.equals("")) {
                 System.out.println("Предмет " + obj + " в коробке");
-                setContent(obj);
+                this.content = obj;
             }
         }
     }
 
     public void deleteContent() {
-        if (!isCoverPosition()) {
+        if (!this.coverPosition) {
             System.out.println("Коробка закрыта");
         } else {
-            if (content == null || content.equals("")) {
+            if (this.content == null || this.content.equals("")) {
                 System.out.println("Коробка уже пустая");
             } else {
                 System.out.println("Предмет " + getContent() + " удален из коробки");
-                setContent(null);
+                this.content = null;
             }
         }
     }
 
     public void replaceContent(String obj) {
-        if (!isCoverPosition()) {
+        if (!this.coverPosition) {
             System.out.println("Коробка закрыта");
         } else {
-            if (getContent().equals(obj)) {
+            if (this.content.equals(obj)) {
                 System.out.println("Предмет уже в коробке");
             } else {
-                System.out.println("Предмет " + getContent() + " заменен на " + obj);
-                setContent(obj);
+                System.out.println("Предмет " + this.content + " заменен на " + obj);
+                this.content = obj;
             }
         }
     }
@@ -77,17 +77,11 @@ public class Box {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public double getLength() {
         return length;
@@ -100,10 +94,6 @@ public class Box {
 
     public double getHeight() {
         return height;
-    }
-
-    public boolean isCoverPosition() {
-        return coverPosition;
     }
 
     public void setCoverPosition(boolean coverPosition) {
